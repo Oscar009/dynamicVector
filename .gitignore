@@ -1,0 +1,8 @@
+*.zip
+Debug
+Release
+*.sln
+.VS
+*.vcxproj
+*.vcxproj.filters
+*.vcxproj.user
