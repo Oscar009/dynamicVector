@@ -24,16 +24,6 @@ int main() {
 		int insOrOut = rand() % 2;
 		int newData = rand() % (10 * n) + 1;
 		if (insOrOut) {
-			if (v->currentCapacity() == v->currentData()) {
-				vector* aux = new vector(v->currentCapacity());
-				for (int j = 0; j < v->currentCapacity(); j++) {
-					aux->push(v->pop());
-				}
-				v = new vector(v->currentCapacity()*2);
-				for (int j = 0; j < aux->currentCapacity(); j++) {
-					v->push(aux->pop());
-				}
-			}
 			v->push(newData);
 			cout << "ins  " << newData << " : ";
 		}

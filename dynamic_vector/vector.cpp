@@ -12,7 +12,22 @@ vector::~vector() {
 	delete[] data; 
 }
 
-void vector::push(int x) { (s < c) ? data[s++] = x : 0; }
+void vector::push(int x) { 
+	if (currentCapacity() == currentData()) {
+		vector copy(currentCapacity());
+		for (int i = 0; i < currentCapacity(); i++) {
+			copy.push(pop());
+		}
+		data = new int[currentCapacity() * 2];
+		c = currentCapacity() * 2;
+		s = 0;
+		for (int i = 0; i < currentCapacity() / 2; i++) {
+			data[i] = 0;
+			push(copy.pop());
+		}
+	}
+	data[s++] = x;
+}
 
 int vector::pop() {
 	int x = data[s-1];
